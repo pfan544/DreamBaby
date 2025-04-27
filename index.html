@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dream Baby</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>👶 Dream Baby</h1>
+    <p>Upload your photos. See your future baby with AI magic.</p>
+
+    <input type="file" id="Parent1Input" accept="image/*">
+    <input type="file" id="Parent2Input" accept="image/*">
+
+    <input type="email" id="Email1Input" placeholder="Your Email Address">
+    <input type="email" id="Email2Input" placeholder="Partner's Email Address (Optional)">
+
+    <button id="GenerateButton">Generate My Baby</button>
+
+    <div id="ResultsGroup" style="display:none;">
+        <h2>Your Dream Baby</h2>
+        <img id="BabyImage" src="" alt="Generated Baby">
+        <h3>Suggested Baby Names:</h3>
+        <ul id="BabyNames"></ul>
+        <p id="BabyTraits"></p>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
