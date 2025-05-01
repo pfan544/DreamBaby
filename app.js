@@ -15,12 +15,18 @@ document.getElementById('GenerateButton').addEventListener('click', async () => 
     formData.append('email1', email1);
     if (email2) formData.append('email2', email2);
 
-    try {
-        const response = await fetch('https://ai-news-now.app.n8n.cloud/webhook/dreambaby', {
+   try {
+        const response = await fetch('https://ai-news-now.app.n8n.cloud/webhook-test/dreambaby', {
             method: 'POST',
             body: formData
         });
+        console.log('Response status:', response.status, response.statusText);
+        if (!response.ok) {
+            const errorText = await response.text();
+            throw new Error(`HTTP error! Status: ${response.status}, Text: ${errorText}`);
+        }
         const data = await response.json();
+        console.log('Response data:', data);
 
         document.getElementById('BabyImage').src = data.babyUrl;
         document.getElementById('BabyNames').innerHTML = data.names.map(name => `<li>${name}</li>`).join('');
@@ -28,7 +34,7 @@ document.getElementById('GenerateButton').addEventListener('click', async () => 
 
         document.getElementById('ResultsGroup').style.display = 'block';
     } catch (error) {
-        alert('Something went wrong! Please try again.');
-        console.error(error);
+        alert('Something went wrong! Error: ' + error.message);
+        console.error('Error details:', error);
     }
 });
