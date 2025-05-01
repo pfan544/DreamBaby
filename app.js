@@ -16,7 +16,7 @@ document.getElementById('GenerateButton').addEventListener('click', async () => 
     if (email2) formData.append('email2', email2);
 
    try {
-        const response = await fetch('https://ai-news-now.app.n8n.cloud/webhook-test/dreambaby', {
+        const response = await fetch('https://ai-news-now.app.n8n.cloud/webhook/dreambaby', {
             method: 'POST',
             body: formData
         });
